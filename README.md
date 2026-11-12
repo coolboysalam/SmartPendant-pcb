@@ -1,4 +1,4 @@
-# Devtronic SmartPendant
+# SmartPendant-pcb
 
 This project allow to control grblHAL based CNC machine withot PC. It also make work way more convinient.
 
@@ -10,7 +10,9 @@ The **STM32F411CE** firmware extension now includes GT911 / FT6236 touch discove
 - [راهنمای فارسی اتولول PCB](Firmware/GT911/PCB_HEIGHT_MAP_FA.md)
 - [PCB mapping technical guide](Firmware/GT911/PCB_HEIGHT_MAP.md)
 - [Build validation and binary checksums](Firmware/GT911/Validation/PCB_AutoLevel_v1.json)
-- [Successful firmware build and downloadable Actions artifact](https://github.com/coolboysalam/SmartPendant/actions/runs/43315828557)
+- [Download both F411CE firmware packages — experimental release](https://github.com/coolboysalam/SmartPendant-pcb/releases/tag/f411ce-experimental-v1)
+- [Firmware comparison, download links and checksums](FIRMWARES.md)
+- [Successful build in this repository](https://github.com/coolboysalam/SmartPendant-pcb/actions/runs/43319199984)
 
 Use **PROBE → PCB / Map** to scan, then **PCB file** to prepare `PCB_LEV.NC`; open that file in **GCODE SENDER** for a separate Run action. The grid supports up to 21 × 21 points. The source file is preserved.
 
@@ -35,7 +37,7 @@ Cable relief designed for 4 mm cable. If your cable is different - generate new 
 
 Source code for this project can be found there: **https://github.com/nickshl/SmartPendant**
 
-Latest firmware placed in Release folder: [SmartPendant.hex](https://github.com/nickshl/SmartPendant/blob/main/Release/SmartPendant.hex)
+Original upstream firmware (the Omid Taheri startup/PCB editions are linked above): [SmartPendant.hex](https://github.com/nickshl/SmartPendant/blob/main/Release/SmartPendant.hex)
 
 To load new firmware [STM32CubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) is used.
 Connect SmartPendant to PC using USB-C cable. Press and hold BOOT0 button, then short press NRST button, couple seconds later BOOT0 button can be released.
