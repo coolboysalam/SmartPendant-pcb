@@ -2,6 +2,22 @@
 
 This project allow to control grblHAL based CNC machine withot PC. It also make work way more convinient.
 
+## SmartPendant-pcb — Omid Taheri experimental firmware
+
+The **STM32F411CE** firmware extension now includes GT911 / FT6236 touch discovery, the embedded Omid Taheri startup logo and standalone PCB height mapping.
+
+- [گزارش کامل تغییرات و نتایج آزمون‌ها](Firmware/GT911/WORK_LOG_FA.md)
+- [راهنمای فارسی اتولول PCB](Firmware/GT911/PCB_HEIGHT_MAP_FA.md)
+- [PCB mapping technical guide](Firmware/GT911/PCB_HEIGHT_MAP.md)
+- [Build validation and binary checksums](Firmware/GT911/Validation/PCB_AutoLevel_v1.json)
+- [Successful firmware build and downloadable Actions artifact](https://github.com/coolboysalam/SmartPendant/actions/runs/43315828557)
+
+Use **PROBE → PCB / Map** to scan, then **PCB file** to prepare `PCB_LEV.NC`; open that file in **GCODE SENDER** for a separate Run action. The grid supports up to 21 × 21 points. The source file is preserved.
+
+**Experimental: software tests and the F411CE cross-build passed; physical CNC/probe/SD timing tests remain pending.** See the guide for required G54/homing/probe setup and supported G-code. The latest source and documentation are on `main` in this standalone repository.
+
+This standalone repository contains the PCB auto-level edition. Original hardware: [Devtronic-US/SmartPendant](https://github.com/Devtronic-US/SmartPendant); hardware fork: [coolboysalam/SmartPendant](https://github.com/coolboysalam/SmartPendant); firmware: [nickshl/SmartPendant](https://github.com/nickshl/SmartPendant).
+
 **Store:** https://devtronic.square.site/
 
 ![Image](Media/Devtronic_SmartPendant_1.png "Devtronic SmartPendant")

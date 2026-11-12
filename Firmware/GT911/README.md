@@ -1,10 +1,16 @@
-# Experimental GT911 touchscreen compatibility for SmartPendant
+# Experimental SmartPendant firmware: touch, startup logo and PCB auto-level
 
 **Experimental STM32F411CE build. Both touch paths require on-board verification.**
 
 This directory is a firmware overlay. The parent repository `coolboysalam/SmartPendant` is a **hardware fork** of `Devtronic-US/SmartPendant`; the actual firmware lives in `nickshl/SmartPendant`. For that reason we keep the new drivers and an adapted `AppMain.cpp` here, rather than importing hundreds of unrelated upstream firmware files into the hardware fork.
 
-## Changes
+## Current firmware features
+
+In addition to the touch extension, this branch includes the embedded [Omid Taheri startup logo](STARTUP_LOGO.md) and [standalone PCB height mapping](PCB_HEIGHT_MAP.md). See the [Persian PCB guide](PCB_HEIGHT_MAP_FA.md), [Persian development log](WORK_LOG_FA.md) and [build report](Validation/PCB_AutoLevel_v1.json).
+
+The F411CE cross-build and host tests passed in [GitHub Actions](https://github.com/coolboysalam/SmartPendant/actions/runs/43315828557). Physical CNC/probe/SD timing validation remains pending. The report identifies the exact source revision and local binary checksums.
+
+## Touch changes
 
 - Added `GT911` as a DevCore `ITouchscreen` implementation via `IIic`.
 - Added `AutoTouch` runtime detection: try existing FT6236 at **0x38** first, then GT911 at **0x5D / 0x14**.
@@ -22,7 +28,7 @@ On GitHub, use **Actions → GT911 experimental firmware build**. On Linux/WSL w
 bash Firmware/GT911/scripts/build.sh
 ```
 
-The script checks out firmware at `af27c8e6f829295ef873784aa286e29e3156f134` and its pinned DevCore submodule at `07bb40292059bc81b2b8a6b13f01da24b783f2d8`, overlays the changed application files, runs host-mock tests, and cross-compiles for STM32F411CE. Successful outputs are copied to `build/gt911/artifacts/`.
+The script checks out firmware at `af27c8e6f829295ef873784aa286e29e3156f134` and its pinned DevCore submodule at `07bb40292059bc81b2b8a6b13f01da24b783f2d8`, overlays the changed application files, runs touch/startup/PCB tests and existing host regressions, and cross-compiles for STM32F411CE. Successful outputs are copied to `build/gt911/artifacts/`.
 
 ## Safety / pending verification
 
@@ -32,7 +38,7 @@ The script checks out firmware at `af27c8e6f829295ef873784aa286e29e3156f134` and
 - SmartPendant 1.5a P1 selects four-wire SPI for the Z350IT008-DCT. Check pin 1 and the exposed contact side on the physical ribbon.
 - Ensure backlight current limiting (datasheet suggests approximately **120mA maximum**).
 - Confirm GT911's actual coordinate range/orientation and first-contact behavior on real hardware.
-- Host tests and the ARM GCC 14.3.1 Release cross-build passed. The BIN and HEX target STM32F411CE. The F401CC requires its own build.
+- Host tests and the ARM GNU 13.3.Rel1 Release cross-build passed for the current PCB build. The GitHub Actions build also passed using its installed ARM package. The BIN and HEX target STM32F411CE. The F401CC requires its own build.
 
 For detailed technical notes in Persian, see [README_FA.md](README_FA.md). Do not connect the replacement display or flash experimental firmware before the checks above.
 

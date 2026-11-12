@@ -5,6 +5,8 @@ the existing GT911/FT6236 pendant. The approved startup logo remains embedded.
 This is source- and host-tested firmware; a physical machine bench test is
 still required. It never starts a scan or machining merely by opening a page.
 
+[راهنمای فارسی](PCB_HEIGHT_MAP_FA.md) · [Development log (Persian)](WORK_LOG_FA.md) · [Build validation](Validation/PCB_AutoLevel_v1.json)
+
 ## Workflow
 
 1. Home the CNC, obtain MPG control and stop the spindle. Use G54 and metric

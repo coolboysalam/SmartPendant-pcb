@@ -51,10 +51,10 @@ filesystem-backed menu, so flashing new firmware alone does not populate it.
 Generate transfers the generated text to Program Sender; starting machining is
 a separate action. Example cutting parameters require machine/tool review.
 
-## Future PCB height mapping
+## PCB height mapping on this branch
 
-A complete standalone PCB workflow needs grid probing with fresh successful
-probe reports, a persistent height map, and toolpath compensation. The current
-Little-C script generator produces G-code before Program Sender executes it;
-it does not itself collect a probing grid or compensate an existing program.
-No height-map functionality is included in this startup-screen change.
+Standalone PCB probing and G-code compensation are now implemented separately
+from the startup screen. See [the technical guide](PCB_HEIGHT_MAP.md),
+[the Persian guide](PCB_HEIGHT_MAP_FA.md) and [the work log](WORK_LOG_FA.md).
+The startup-only commit did not contain this feature; the current PCB build does.
+Host tests and the F411CE cross-build passed; physical machine validation is pending.

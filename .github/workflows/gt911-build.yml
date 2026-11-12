@@ -3,6 +3,7 @@ name: GT911 experimental firmware build
 on:
   push:
     branches:
+      - main
       - feature/gt911-auto-touch-experimental
       - feature/pcb-height-map
     paths:

@@ -1,0 +1,39 @@
+{
+  "target": "STM32F411CEUx / Black Pill; 320x480 portrait",
+  "status": "EXPERIMENTAL — physical machine tests not performed",
+  "source_commit": "8befe48801c591a2339d4fde1464b458b18f3c09",
+  "source_url": "https://github.com/coolboysalam/SmartPendant-pcb/tree/8befe48801c591a2339d4fde1464b458b18f3c09/Firmware/GT911",
+  "upstream_firmware_commit": "af27c8e6f829295ef873784aa286e29e3156f134",
+  "devcore_commit": "07bb40292059bc81b2b8a6b13f01da24b783f2d8",
+  "toolchain": "ARM GNU 13.3.Rel1",
+  "build": "PASS — scripts/build.sh completed all host tests and ARM cross-build",
+  "github_actions": {
+    "result": "success",
+    "url": "https://github.com/coolboysalam/SmartPendant/actions/runs/43315828557",
+    "source_commit": "8befe48801c591a2339d4fde1464b458b18f3c09"
+  },
+  "sanitizers": {
+    "AddressSanitizer": "enabled",
+    "UndefinedBehaviorSanitizer": "enabled",
+    "LeakSanitizer": "disabled due to ptraced environment"
+  },
+  "artifact_checks": {
+    "intel_hex_checksums": "PASS",
+    "hex_matches_bin_zero_filled_gaps": "PASS",
+    "initial_stack_pointer": "0x20020000",
+    "reset_handler": "0x8037529",
+    "binary_size_bytes": 379664
+  },
+  "limitations": [
+    "No hardware/SD timing/machine validation",
+    "Independent grblHAL Simulator exited 139 even for a minimal baseline input; no independent parser-validation claim",
+    "Inherited linker warning: LOAD segment with RWX permissions"
+  ],
+  "firmware_sha256": {
+    "SmartPendant_F411CE_PCB_AutoLevel_v1.bin": "948b9dbadd785671d22c7dabbcd17671c9cf0b4c9cd25c63ac5631407bbecbc0",
+    "SmartPendant_F411CE_PCB_AutoLevel_v1.hex": "919a56be0e8930f5dd0f8bdf67952cd08135dfb3ef9029f562e7c45025c0586f"
+  },
+  "local_and_ci_builds": "Local ARM GNU 13.3.Rel1 artifact hashes are recorded here. GitHub Actions success is independent; CI artifacts can use a different ARM package and must not be assumed byte-identical.",
+  "repository": "coolboysalam/SmartPendant-pcb",
+  "upstream_hardware_fork": "coolboysalam/SmartPendant"
+}
